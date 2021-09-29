@@ -6,8 +6,6 @@ const run = async () => {
         // everyone should do this
         database: "puppies",
         // you may not need these:
-        user: "joe-alves",
-        password: "buttons"
     });
     await client.connect();
 
@@ -19,17 +17,19 @@ const run = async () => {
         await client.query(insertNewDogSQL, ["Penny", "Havanese"]);
         await client.query(insertNewDogSQL, ["Loaf", "Corgi"]);
         await client.query(insertNewDogSQL, ["Boomer", "Yellow Labrador"]);
+        await client.end();
 
     };
 
 
     try {
         seedNewData();
+        console.log("hello!");
     } catch (e) {
         console.log(e)
     }
-    
-    
+
+
 
 };
 run();
